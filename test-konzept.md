@@ -26,6 +26,34 @@ Testen der Funktionalitäten: Erstellen, Bearbeiten, Anzeigen und Löschen Manue
 
 Manuelle Testfälle für das Testen des Frontends:
 
+## V* = Vorbedingungen:
+1. Keine To-Do’s vorhanden/erstellt  
+2. Min. eine To-Do vorhanden/erstellt  
+3. Min. 2 To-Do’s mit unterschiedlichen Werten bei Priorität, Kategorie und Datum  
+
+## Nachbedingungen:
+Keine  
+
+| Nr. | Testfall                                | V* | Beschreibung                                                                                                          | Erwartetes Ergebnis                                                                                      | Testtyp |
+|-----|-----------------------------------------|----------------|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|---------|
+| 1   | Keine To-Dos vorhanden                 | 1              | Home Seite, wenn keine To-Do’s erstellt sind                                                                         | Anzeige von «Keine ToDos vorhanden, erstelle welche» unterhalb von dem Erstellungsformular               | Positiv |
+| 2   | To-Do Erstellen                        | -              | Eingabe Erstellungsformular:<br>Titel: «Test-1»<br>Kategorie: «Private»<br>Priorität: «Medium»<br>Datum: leer<br>Erstellen «+» Button klicken | To-Do wird korrekt erstellt und unterhalb dargestellt                                                    | Positiv |
+| 3   | Ungültige Eingabe (ungültiger Titel)   | -              | Eingabe Erstellungsformular:<br>Titel: «266 Zeichen langer Text»<br>Kategorie: default<br>Priorität: default<br>Datum: leer<br>Erstellen «+» Button klicken | Backend blockiert das Speichern (500er) und Frontend zeigt eine rote Fehlermeldung                       | Negativ |
+| 4   | To-Do Bearbeiten & Vergangenheit Styling | 2              | Bestehende To-Do Felder Eingabe:<br>Titel: «Test-2-bearbeitet»<br>Kategorie: «Private»<br>Priorität: «Medium»<br>Datum: 10.01.2025 14:00 | Änderungen werden korrekt gespeichert und angezeigt                                                     | Positiv |
+| 5   | To-Do Löschen                          | 2              | Klicken auf das Müll-Icon bei einer bestehenden To-Do                                                                | To-Do wird aus der Liste entfernt und ist nicht mehr ersichtlich                                         | Positiv |
+| 6   | To-Do Abschliessen                     | 2              | Checkbox auswählen                                                                                                   | Titel des To-Do’s wird durchgestrichen und verblasst dargestellt                                         | Positiv |
+| 7   | Filtern/Sortieren nach Priorität       | 3              | Klicken auf: «Priority High to Low»                                                                                  | To-Dos mit Priority High werden zuoberst angezeigt, dann Medium und dann Low                             | Positiv |
+| 8   | Filtern/Sortieren nach Priorität       | 3              | Klicken auf: «Priority Low to High»                                                                                  | To-Dos mit Priority Low werden zuoberst angezeigt, dann Medium und dann High                             | Positiv |
+| 9   | Filtern nach Kategorie                 | 3              | Klicken auf: «By Category»<br>Kategorien Dropdown: Kategorie «Private» auswählen                                    | Nur To-Dos mit der Kategorie Private werden angezeigt (keine, falls keine To-Do diese Kategorie hat)     | Positiv |
+| 10  | To-Do Kategorie Erstellen & Auswählen | -              | Eingabe Erstellungsformular:<br>Titel: «Neue Kategorie»<br>Kategorie: «Custom» auswählen<br>Im neuen Inputfeld: «Test-Kategorie» eingeben<br>Erstellen «+» Button klicken | Kategorie wird korrekt erstellt und zugewiesen                                                          | Positiv | 
+| 11  | Farbige Markierung bei Fälligkeit     | -              | Eingabe Erstellungsformular:<br>Titel: «Test-datum-1»<br>Kategorie: default<br>Priorität: default<br>Datum: 10.01.2025 14:00<br>Erstellen «+» Button klicken | To-Do wird mit einer roten Border umrahmt, da das Datum in der Vergangenheit liegt                        | Positiv |
+
+
+<details>
+  <summary>Notizen - Archiv - Testbeschreibungen</summary>
+
+
+
   | **Testfall** | **Beschreibung** | **Erwartetes Ergebnis** | **Testtyp** |
   |--------------|------------------|-------------------------|-------------|
   | **To-Do Erstellen** | Erstellen eines neuen To-Dos mit Priorität, Fälligkeitsdatum und Kategorie | To-Do wird korrekt erstellt | Positiv |
@@ -38,8 +66,7 @@ Manuelle Testfälle für das Testen des Frontends:
   | **Farbige Markierung bei Fälligkeit** | Fälligkeitsdatum innerhalb der nächsten 24 Stunden | Aufgabe wird farblich markiert | Positiv |
 
 
-<details>
-  <summary>Notizen - Archiv - Testbeschreibungen</summary>
+
 
 Mit berücksichtigen "Negativ tests" wo man prüft, ob erwartete Errors zurückkommen / passendes Handeling gemacht wird z.B.:
 - beim Erstellen und Editieren den Titel zu lang machen -> Errormeldung / Frontend-form-validierung
