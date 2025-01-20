@@ -12,7 +12,7 @@ Für das Testkonzept orientieren wir uns an der Testpyramide und deren Testarten
 | Manuelles Testen | Manuell - über das Frontend testen | Ganzes System testen aus End-User-Sicht| Erstellen / Löschen / Editieren einer To-Do |
 | End-to-End Tests | Systemtesten mit Cypress| Ganzes System testen| Erstellen / Löschen / Editieren einer To-Do |
 | Integrationstest   | Automatisierte API Schnittstellen tests mit WireMock | Schnittstellen testen Backend| CRUD To-Do-List (Jeden Endpunkt)|
-| Component Test| Frontend mit Jest| Laden von Seiten sicherstellen| Seite /home / new / edit|
+| Component Test| Frontend mit Jest| Laden von Seiten sicherstellen| Home seite mit Komponenten |
 | Unittest| Backend mit JUnit & Mockito| Einzelne Codeeinheiten wie Funktionen testen | Erstellen, Bearbeiten, Löschen|
 
 ### Testumgebung:
